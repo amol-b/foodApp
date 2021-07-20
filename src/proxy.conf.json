@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "https://foodbook-v1.eu-gb.mybluemix.net/",
+    "secure": false
+  }
+}
+

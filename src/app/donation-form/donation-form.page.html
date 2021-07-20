@@ -1,0 +1,57 @@
+<app-side-menu></app-side-menu>
+<app-header></app-header>
+<ion-content color="primary" class="ion-no-padding" id="main-content">
+  <h6 class="ion-text-center">My Donation</h6>
+  <ion-card>
+    <!-- <form [formGroup]="donationForm"> -->
+      <ion-list>
+        <ion-item>
+          <ion-label>Select food category</ion-label>
+          <ion-select>
+            <ion-select-option value="brown">Grocery</ion-select-option>
+            <ion-select-option value="blonde">Fruits</ion-select-option>
+            <ion-select-option value="black">Beverages</ion-select-option>
+            <ion-select-option value="red">Prepared food</ion-select-option>
+            <ion-select-option value="red">Other</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Food Title</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Address</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Contact Number</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pickup Date</ion-label>
+          <ion-datetime value=""></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pickup Start Time</ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value=""></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pickup End Time</ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value=""></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Additonal Information</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Upload Photos</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button expand="full" size="small">Reset</ion-button>
+          <ion-button expand="full" size="small">Submit</ion-button>
+        </ion-item>
+      </ion-list>
+    <!-- </form> -->
+  </ion-card>
+</ion-content>

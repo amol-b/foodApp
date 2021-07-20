@@ -24,3 +24,41 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// body {
+//   background: url('./assets/bg1.png');
+//   background-size: cover;
+// }
+
+// ion-content {
+//   --background: transparent;
+// }
+
+// #main-content {
+//   background-size: cover;
+// }
+
+// ion-content {
+//   --background: var(--ion-color-primary)
+// }
+
+
+.custom-border-radius{
+  border-radius: 125px 0 115px 0;
+}
+
+.border-radius-top-left{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+ion-list{
+  --background: var(--ion-color-primary-contrast);
+}
+
+#main-content ion-item{
+  --border-color: var(--ion-color-primary);
+  &:last-child {
+    --border-color: white;
+  }
+}
