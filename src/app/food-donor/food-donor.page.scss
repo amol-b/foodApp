@@ -1,0 +1,22 @@
+.item-avatar  {
+  width:100px !important;
+  height : 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  margin:0 auto;
+}
+ion-label {
+  p {
+    white-space: normal;
+  }
+}
+
+.item-image{
+  img {
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    max-width: 45px;
+    border: 1px solid var(--ion-color-primary);
+  }
+}
