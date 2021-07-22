@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class SideMenuComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private menu: MenuController) { }
 
   ngOnInit() {}
 
   onMenuItemClick(urlSegment) {
     this.route.navigate([urlSegment]);
+    this.menu.close();
   }
 }
