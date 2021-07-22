@@ -1,13 +1,13 @@
 <app-side-menu></app-side-menu>
 <app-header></app-header>
 <ion-content color="primary" class="ion-no-padding" id="main-content">
-  <h6 class="ion-text-center">My Donation</h6>
+  <h5 class="ion-text-center">My Donation</h5>
   <ion-card>
-    <!-- <form [formGroup]="donationForm"> -->
+    <form [formGroup]="donationForm">
       <ion-list>
         <ion-item>
-          <ion-label>Select food category</ion-label>
-          <ion-select>
+          <ion-label color="primary">Select food category</ion-label>
+          <ion-select formControlName="foodCategory" color="primary">
             <ion-select-option value="brown">Grocery</ion-select-option>
             <ion-select-option value="blonde">Fruits</ion-select-option>
             <ion-select-option value="black">Beverages</ion-select-option>
@@ -16,42 +16,43 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>Food Title</ion-label>
-          <ion-input></ion-input>
+          <ion-label color="primary">Food Title</ion-label>
+          <ion-input formControlName="title" color="primary"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Address</ion-label>
-          <ion-textarea></ion-textarea>
+          <ion-label color="primary">Address</ion-label>
+          <ion-textarea formControlName="address" color="primary"></ion-textarea>
         </ion-item>
         <ion-item>
-          <ion-label>Contact Number</ion-label>
-          <ion-input></ion-input>
+          <ion-label color="primary">Contact Number</ion-label>
+          <ion-input formControlName="contactNumber" color="primary"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Pickup Date</ion-label>
-          <ion-datetime value=""></ion-datetime>
+          <ion-label color="primary">Pickup Date</ion-label>
+          <ion-datetime value="" formControlName="pickupDate" color="primary"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label>Pickup Start Time</ion-label>
-          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value=""></ion-datetime>
+          <ion-label color="primary">Pickup Start Time</ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="" formControlName="pickupStartTime" color="primary"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label>Pickup End Time</ion-label>
-          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value=""></ion-datetime>
+          <ion-label color="primary">Pickup End Time</ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="" formControlName="pickupEndTime" color="primary"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label>Additonal Information</ion-label>
-          <ion-textarea></ion-textarea>
+          <ion-label color="primary">Additonal Information</ion-label>
+          <ion-textarea formControlName="additionalInfo" color="primary"></ion-textarea>
         </ion-item>
         <ion-item>
-          <ion-label>Upload Photos</ion-label>
-          <ion-input></ion-input>
+          <!-- <ion-label color="primary" slot="start">Upload Photo(s)</ion-label> -->
+          <label for="upload-photo">Upload photo<ion-icon name="cloud-upload-outline" color="primary" size="large"></ion-icon></label>
+          <input type="file" formControlName="photos" color="primary" hidden id="upload-photo">
         </ion-item>
         <ion-item>
-          <ion-button expand="full" size="small">Reset</ion-button>
-          <ion-button expand="full" size="small">Submit</ion-button>
+          <ion-button type="reset" size="small" fill="outline" slot="end">Reset</ion-button>
+          <ion-button type="submit"  size="small" slot="end">Submit</ion-button>
         </ion-item>
       </ion-list>
-    <!-- </form> -->
+    </form>
   </ion-card>
 </ion-content>
