@@ -42,6 +42,9 @@
 //   --background: var(--ion-color-primary)
 // }
 
+* {
+  --ion-font-family: 'Montserrat', sans-serif;
+}
 
 .custom-border-radius{
   border-radius: 125px 0 115px 0;
@@ -54,6 +57,10 @@
 
 ion-list{
   --background: var(--ion-color-primary-contrast);
+}
+
+ion-label, ion-input{
+  --color: red;
 }
 
 #main-content ion-item{

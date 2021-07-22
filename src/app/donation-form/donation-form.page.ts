@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-donation-form',
@@ -12,6 +12,29 @@ export class DonationFormPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.donationForm = new FormGroup({
+      foodCategory: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      title: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      address: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      contactNumber: new FormControl(''),
+      pickupDate: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      pickupStartTime: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      pickupEndTime: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      additionalInfo: new FormControl(''),
+      photos: new FormControl('')
+    });
   }
-
 }
+
