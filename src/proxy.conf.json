@@ -1,6 +1,6 @@
 {
   "/": {
-    "target": "https://foodbook-v1.eu-gb.mybluemix.net/",
+    "target": "https://foodbook-v1-app-b3.c70gber22ip.us-south.codeengine.appdomain.cloud/",
     "secure": false
   }
 }
