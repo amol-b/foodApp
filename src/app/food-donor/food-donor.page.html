@@ -1,9 +1,9 @@
 <app-header></app-header>
 <ion-content color="primary" class="ion-no-padding" id="main-content">
   <ion-card class="ion-no-margin custom-border-radius">
-    <ion-card-header>
+    <ion-card-header tabindex="1" aria-label="profile image">
       <ion-item lines="none">
-        <ion-avatar class="item-avatar">
+        <ion-avatar class="item-avatar" >
           <img src="../../assets/placeholder-user.png">
         </ion-avatar>
       </ion-item>
@@ -11,39 +11,41 @@
     <ion-card-content>
       <ion-item lines="none">
         <ion-label color="primary">
-          <h4>Welcome Sree!!</h4>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+          <h4 tabindex="1">Welcome Sree!!</h4>
+          <p tabindex="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
         </ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <h6 class="ion-text-center">My Donations</h6>
-  <ion-card color="primary">
-    <ion-card-content class="ion-no-padding">
-      <ion-item>
-        <ion-avatar slot="start" class="item-image">
-          <img src="../../assets/bg.png">
-        </ion-avatar>
-        <ion-label color="primary">
-          <h2>Apples & Banana</h2>
-          <p>Category: Fruits</p>
-          <p>07/01/2021</p>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-avatar slot="start" class="item-image">
-          <img src="../../assets/bg.png">
-        </ion-avatar>
-        <ion-label color="primary">
-          <h2>Apples & Banana</h2>
-          <p>Category: Fruits</p>
-          <p>07/01/2021</p>
-        </ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <div id="my-donation">
+    <div class="ion-text-center header" tabindex="2" aria-label="my donation list">My Donations</div>
+    <ion-card color="primary">
+      <ion-card-content class="ion-no-padding">
+        <ion-item>
+          <ion-avatar slot="start" class="item-image" tabindex="3" aria-label="image of food item">
+            <img src="../../assets/bg.png">
+          </ion-avatar>
+          <ion-label color="primary">
+            <h2 tabindex="3">Ttile: Apples & Banana</h2>
+            <p tabindex="3">Category: Fruits</p>
+            <p tabindex="3">07/01/2021</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start" class="item-image" tabindex="3" aria-label="image of food item">
+            <img src="../../assets/bg.png">
+          </ion-avatar>
+          <ion-label color="primary">
+            <h2 tabindex="3">Apples & Banana</h2>
+            <p tabindex="3">Category: Fruits</p>
+            <p tabindex="3">07/01/2021</p>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" href="donation-form">
+    <ion-fab-button color="light" href="donation-form" tabindex="3">
       <ion-icon name="add-outline" ></ion-icon>
     </ion-fab-button>
   </ion-fab>

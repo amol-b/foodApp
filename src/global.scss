@@ -46,6 +46,16 @@
   --ion-font-family: 'Montserrat', sans-serif;
 }
 
+// ion-toolbar {
+//   --background: var(--button-bg);
+// }
+
+ion-content {
+  --background: url('./assets/custom-bg.png');
+  background-size: cover;
+  // --background: var(--ion-color-tertiary);
+}
+
 .custom-border-radius{
   border-radius: 125px 0 115px 0;
 }
@@ -59,9 +69,6 @@ ion-list{
   --background: var(--ion-color-primary-contrast);
 }
 
-ion-label, ion-input{
-  --color: red;
-}
 
 #main-content ion-item{
   --border-color: var(--ion-color-primary);

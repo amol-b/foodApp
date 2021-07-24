@@ -1,0 +1,22 @@
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .app-logo {
+    display: flex;
+    align-items: center;
+    img {
+      border-radius: 100% 21px;
+    }
+  }
+  .button-wrapper{
+    margin-top:10px;
+  }
+}
+
+ion-button {
+  --background: var(--button-bg);
+  --color: var(--ion-color-primary-contrast);
+}
+
