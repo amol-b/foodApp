@@ -1,0 +1,20 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>NGO List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item *ngFor="let item of ngolist">
+      <ion-avatar slot="start">
+        <img src="{{item.picture}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.company}}</h2>
+        <h3>{{item.noOfDeliveries}}</h3>
+        <p>{{item.about}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

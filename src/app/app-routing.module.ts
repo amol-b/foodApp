@@ -18,7 +18,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'ngo-list',
+    loadChildren: () => import('./ngo-list/ngo-list.module').then( m => m.NgoListPageModule)
   }
+
 ];
 @NgModule({
   imports: [
