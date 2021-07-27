@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { take, takeUntil, takeWhile } from 'rxjs/operators';
 import { NgoListService } from '../core/services/ngo-list.service';
 
@@ -7,7 +7,7 @@ import { NgoListService } from '../core/services/ngo-list.service';
   templateUrl: './ngo-list.page.html',
   styleUrls: ['./ngo-list.page.scss'],
 })
-export class NgoListPage implements OnInit {
+export class NgoListPage implements OnInit, OnDestroy {
 
   ngolist = [];
   componentActive = true;
@@ -17,5 +17,9 @@ export class NgoListPage implements OnInit {
     this.service.getNgoList().pipe(takeWhile( () => this.componentActive)).subscribe(data => {
       this.ngolist = data;
     });
+  }
+
+  ngOnDestroy() {
+    this.componentActive = false;
   }
 }
