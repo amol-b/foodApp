@@ -1,6 +1,6 @@
 {
-  "/": {
-    "target": "https://foodbook-v1-app-b3.c70gber22ip.us-south.codeengine.appdomain.cloud/",
+  "/restaurants": {
+    "target": "https://app-c2.c70gber22ip.us-south.codeengine.appdomain.cloud:3000",
     "secure": false
   }
 }

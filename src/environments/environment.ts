@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:8100/'
+  apiURL: 'https://app-c2.c70gber22ip.us-south.codeengine.appdomain.cloud'
 };
 
 /*
