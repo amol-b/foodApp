@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DonationService } from '../core/services/donation.service';
 
 @Component({
   selector: 'app-donation-form',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class DonationFormPage implements OnInit {
   donationForm: FormGroup;
 
-  constructor() { }
+  constructor(private donationService: DonationService) { }
 
   ngOnInit() {
     this.donationForm = new FormGroup({
@@ -33,8 +34,30 @@ export class DonationFormPage implements OnInit {
         validators: [Validators.required]
       }),
       additionalInfo: new FormControl(''),
-      photos: new FormControl('')
+      photo: new FormControl('')
     });
   }
+
+  onSubmit() {
+      const payload = {
+        _id: 'test user',
+        name: 'test user',
+        photograph: this.donationForm.get('photo').value,
+        address: 'test',
+        cuisine_type: this.donationForm.get('foodCategory').value,
+        additional_information: this.donationForm.get('additionalInfo').value,
+        donation_hours: [{
+            date: this.donationForm.get('additionalInfo').value,
+            quantity: this.donationForm.get('additionalInfo').value,
+            packed: 'Packed',
+            pickup: 'Pickup',
+            address: this.donationForm.get('address').value,
+          }],
+      };
+      this.donationService.addDonation(payload).subscribe((response) => {
+        console.log(response);
+      });
+  }
+
 }
 

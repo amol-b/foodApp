@@ -7,11 +7,11 @@
         <ion-item>
           <ion-label color="primary">Select food category</ion-label>
           <ion-select formControlName="foodCategory" color="primary">
-            <ion-select-option value="brown">Grocery</ion-select-option>
-            <ion-select-option value="blonde">Fruits</ion-select-option>
-            <ion-select-option value="black">Beverages</ion-select-option>
-            <ion-select-option value="red">Prepared food</ion-select-option>
-            <ion-select-option value="red">Other</ion-select-option>
+            <ion-select-option value="Grocery">Grocery</ion-select-option>
+            <ion-select-option value="Fruits">Fruits</ion-select-option>
+            <ion-select-option value="Beverages">Beverages</ion-select-option>
+            <ion-select-option value="Prepared food">Prepared food</ion-select-option>
+            <ion-select-option value="Other">Other</ion-select-option>
           </ion-select>
         </ion-item>
         <ion-item>
@@ -24,7 +24,7 @@
         </ion-item>
         <ion-item>
           <ion-label color="primary">Contact Number</ion-label>
-          <ion-input formControlName="contactNumber" color="primary"></ion-input>
+          <ion-input type="tel" formControlName="contactNumber" color="primary"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Pickup Date</ion-label>
@@ -45,11 +45,11 @@
         <ion-item >
           <!-- <ion-label color="primary" slot="start">Upload Photo(s)</ion-label> -->
           <label for="upload-photo" tabindex="1" class="upload-photo">Upload photo<ion-icon name="cloud-upload-outline" color="primary"></ion-icon></label>
-          <input type="file" formControlName="photos" color="primary" hidden id="upload-photo">
+          <input type="file" formControlName="photo" color="primary" hidden id="upload-photo">
         </ion-item>
         <ion-item>
           <ion-button type="reset" size="small" fill="outline" slot="end">Reset</ion-button>
-          <ion-button type="submit"  size="small" slot="end">Submit</ion-button>
+          <ion-button type="submit"  size="small" slot="end" (click)="onSubmit()" [disabled]="!donationForm.valid">Submit</ion-button>
         </ion-item>
       </ion-list>
     </form>
