@@ -52,8 +52,8 @@
         </ion-item>
         <ion-item >
           <!-- <ion-label color="primary" slot="start">Upload Photo(s)</ion-label> -->
-          <label for="upload-photo" tabindex="1" class="upload-photo">Upload photo<ion-icon name="cloud-upload-outline" color="primary"></ion-icon></label>
-          <input type="file" formControlName="photo" hidden id="upload-photo">
+          <label for="upload-photo" tabindex="1" class="upload-photo" >Upload photo<ion-icon name="cloud-upload-outline" color="primary"></ion-icon></label>
+          <input type="file" formControlName="photo" hidden id="upload-photo" (change)="onFileChange($event)">
         </ion-item>
         <ion-item>
           <ion-button type="reset" size="small" fill="outline" slot="end">Reset</ion-button>
