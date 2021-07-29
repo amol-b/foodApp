@@ -138,7 +138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content color=\"primary\" class=\"ion-no-padding\" id=\"home-page\">\r\n  <section>\r\n    <div class=\"app-logo\">\r\n      <img src=\"../../assets/02.JPG\"/>\r\n    </div>\r\n    <div class=\"button-wrapper\">\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/donor\" class=\"ion-text-wrap\">Login As NGO</ion-button>\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/donor\" class=\"ion-text-wrap\">Login As Donor</ion-button>\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/donor\" class=\"ion-text-wrap\">Login As Acceptor</ion-button>\r\n    </div>\r\n  </section>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content color=\"primary\" class=\"ion-no-padding\" id=\"home-page\">\r\n  <section>\r\n    <div class=\"app-logo\">\r\n      <img src=\"../../assets/02.JPG\"/>\r\n    </div>\r\n    <div class=\"button-wrapper\">\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/ngo\" class=\"ion-text-wrap\">Login As NGO</ion-button>\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/donor\" class=\"ion-text-wrap\">Login As Donor</ion-button>\r\n      <ion-button type=\"button\" expand=\"block\" routerLink=\"/acceptor\" class=\"ion-text-wrap\">Login As Acceptor</ion-button>\r\n    </div>\r\n  </section>\r\n</ion-content>\r\n");
 
 /***/ })
 

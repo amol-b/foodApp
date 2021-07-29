@@ -46,19 +46,27 @@ const routes = [
     },
     {
         path: 'donor',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_food-donor_food-donor_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./food-donor/food-donor.module */ 5292)).then(m => m.FoodDonorPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donor_donor-dashboard_donor-dashboard_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donor/donor-dashboard/donor-dashboard.module */ 309)).then(m => m.DonorDashboardPageModule)
     },
     {
         path: 'donation-form',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donation-form_donation-form_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donation-form/donation-form.module */ 1779)).then(m => m.DonationFormPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donor_donation-form_donation-form_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donor//donation-form/donation-form.module */ 8004)).then(m => m.DonationFormPageModule)
+    },
+    {
+        path: 'donation/:id',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donor_donation_donation_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donor//donation/donation.module */ 8577)).then(m => m.DonationPageModule)
     },
     {
         path: 'ngo-list',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_ngo-list_ngo-list_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./ngo-list/ngo-list.module */ 6253)).then(m => m.NgoListPageModule)
     },
     {
-        path: 'donation/:id',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donation_donation_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donation/donation.module */ 4624)).then(m => m.DonationPageModule)
+        path: 'acceptor',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_acceptor_acceptor-dashboard_acceptor-dashboard_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./acceptor/acceptor-dashboard/acceptor-dashboard.module */ 2504)).then(m => m.AcceptorDashboardPageModule)
+    },
+    {
+        path: 'ngo',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_ngo_ngo-dashboard_ngo-dashboard_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./ngo/ngo-dashboard/ngo-dashboard.module */ 3120)).then(m => m.NgoDashboardPageModule)
     },
     {
         path: '',
