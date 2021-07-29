@@ -13,6 +13,7 @@ export class DonationFormPage implements OnInit, OnDestroy {
   donationForm: FormGroup;
   componentActive = true;
   isSubmitionInProgress = false;
+  base64Img: string;
 
   constructor(private router: Router,
     private donationService: DonationService,
@@ -63,19 +64,23 @@ export class DonationFormPage implements OnInit, OnDestroy {
 
   onSubmit() {
     this.isSubmitionInProgress = true;
+    const pickupStartTime = new Date(this.donationForm.get('pickupStartTime').value).toLocaleTimeString();
+    const pickupEndTime = new Date(this.donationForm.get('pickupEndTime').value).toLocaleTimeString();
+    const currDate = new Date();
+    const submissionDate = this.getFormattedDate(currDate);
     const payload = {
       _id: this.donationForm.get('name').value,
       name: this.donationForm.get('name').value,
-      photograph: this.donationForm.get('photo').value,
+      photograph: `data:image/jpeg;base64,${this.base64Img}`,
       food_title: this.donationForm.get('title').value,
       address: 'test',
-      submission_date: new Date(),
+      submission_date: submissionDate,
       category: this.donationForm.get('foodCategory').value,
       additional_information: this.donationForm.get('additionalInfo').value,
       donation_hours: [{
-          date: this.donationForm.get('pickupDate').value,
+          date: this.getFormattedDate(new Date(this.donationForm.get('pickupDate').value)),
           quantity: this.donationForm.get('quantity').value,
-          pickuptime: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
+          pickuptime: `${pickupStartTime} - ${pickupEndTime}`,
           address: this.donationForm.get('address').value,
         }],
     };
@@ -103,6 +108,35 @@ export class DonationFormPage implements OnInit, OnDestroy {
         res.present();
       });
     });
+  }
+
+  getFormattedDate(currDate) {
+    return `${currDate.getUTCMonth() + 1}/${currDate.getUTCDate()}/${currDate.getUTCFullYear()}`;
+  }
+
+  onFileChange(event) {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      this.handleInputChange(file); //turn into base64
+    }
+  }
+
+  handleInputChange(files) {
+    const file = files;
+    const pattern = /image-*/;
+    const reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onloadend = this.handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
+  handleReaderLoaded(e) {
+    const reader = e.target;
+    this.base64Img = reader.result.substr(reader.result.indexOf(',') + 1);
   }
 
   ngOnDestroy() {
