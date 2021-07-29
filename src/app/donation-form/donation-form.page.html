@@ -5,6 +5,10 @@
     <form [formGroup]="donationForm">
       <ion-list>
         <ion-item>
+          <ion-label color="primary">Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label color="primary">Select food category</ion-label>
           <ion-select formControlName="foodCategory">
             <ion-select-option value="Grocery">Grocery</ion-select-option>
