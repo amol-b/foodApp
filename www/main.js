@@ -50,15 +50,15 @@ const routes = [
     },
     {
         path: 'donation-form',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_donation-form_donation-form_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./donation-form/donation-form.module */ 1779)).then(m => m.DonationFormPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donation-form_donation-form_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donation-form/donation-form.module */ 1779)).then(m => m.DonationFormPageModule)
     },
     {
         path: 'ngo-list',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_ngo-list_ngo-list_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./ngo-list/ngo-list.module */ 6253)).then(m => m.NgoListPageModule)
     },
     {
-        path: 'donation',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_donation_donation_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./donation/donation.module */ 4624)).then(m => m.DonationPageModule)
+        path: 'donation/:id',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_donation_donation_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./donation/donation.module */ 4624)).then(m => m.DonationPageModule)
     },
     {
         path: '',
@@ -235,7 +235,10 @@ let ApiService = class ApiService {
         return this.http.put(`${_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiURL}${path}`, JSON.stringify(body)).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.formatErrors));
     }
     post(path, body = {}) {
-        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiURL}${path}`, JSON.stringify(body)).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.formatErrors));
+        const requestOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__.HttpHeaders({ 'Content-Type': 'application/json', timeout: `${5000}` }),
+        };
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiURL}${path}`, JSON.stringify(body), requestOptions).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.formatErrors));
     }
     delete(path) {
         return this.http.delete(`${_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.apiURL}${path}`).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.formatErrors));
@@ -857,7 +860,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item [routerLink]=\"['/donation']\" [state]=\"donation\" detail>\r\n  <ion-thumbnail slot=\"start\" class=\"item-image\" tabindex=\"3\" aria-label=\"image of food item\">\r\n    <ion-img src=\"../../assets/fruits_veggies.jpg\"></ion-img>\r\n  </ion-thumbnail>\r\n  <ion-label color=\"primary\">\r\n    <h2 tabindex=\"3\">Ttile: <span>{{donation}}</span></h2>\r\n    <p tabindex=\"3\">Category: <span>{{donation}}</span></p>\r\n    <p tabindex=\"3\"><span>07/01/2021</span></p>\r\n  </ion-label>\r\n</ion-item>\r\n\r\n\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item [routerLink]=\"['/donation', donation?._id]\" detail>\r\n  <ion-thumbnail slot=\"start\" class=\"item-image\" tabindex=\"3\" aria-label=\"image of food item\">\r\n    <ion-img src=\"../../assets/fruits_veggies.jpg\"></ion-img>\r\n  </ion-thumbnail>\r\n  <ion-label color=\"primary\">\r\n    <h2 tabindex=\"3\">Ttile: <span>{{donation.food_title}}</span></h2>\r\n    <p tabindex=\"3\">Category: <span>{{donation.category}}</span></p>\r\n    <p tabindex=\"3\"><span>{{donation.submission_date}}</span></p>\r\n  </ion-label>\r\n</ion-item>\r\n\r\n\r\n");
 
 /***/ }),
 
