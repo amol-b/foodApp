@@ -1,0 +1,22 @@
+.item-wrapper {
+ display: flex;
+ margin: 5px;
+}
+
+.item-image{
+  width: 55px;
+  height: 65px;
+  ion-img {
+    border-radius: 5px;
+    width: 50px;
+    height: 65px;
+    max-width: 55px;
+    border: 1px solid var(--ion-color-primary);
+  }
+}
+
+ion-label {
+  span {
+    color: var(--button-bg);
+  }
+}

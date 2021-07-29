@@ -15,18 +15,23 @@ const routes: Routes = [
     loadChildren: () => import('./donation-form/donation-form.module').then( m => m.DonationFormPageModule)
   },
   {
+    path: 'ngo-list',
+    loadChildren: () => import('./ngo-list/ngo-list.module').then( m => m.NgoListPageModule)
+  },
+  {
+    path: 'donation',
+    loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
-    path: 'ngo-list',
-    loadChildren: () => import('./ngo-list/ngo-list.module').then( m => m.NgoListPageModule)
-  }
+  },
 
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

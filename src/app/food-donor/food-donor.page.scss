@@ -11,17 +11,6 @@ ion-label {
   }
 }
 
-.item-image{
-  width: 55px;
-  height: 65px;
-  img {
-    border-radius: 5px;
-    width: 50px;
-    height: 65px;
-    max-width: 55px;
-    border: 1px solid var(--ion-color-primary);
-  }
-}
 
 #my-donation{
   .header {
@@ -37,3 +26,16 @@ ion-label {
 //   --background: transparent;
 // }
 
+.loader-wrapper {
+  --background: transparent;
+  div{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  ion-spinner {
+    width: 60px;
+    height: 60px;
+    color: #FFF;
+  }
+}
