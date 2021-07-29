@@ -19,6 +19,7 @@
   </ion-card>
   <div id="my-donation">
     <div class="ion-text-center header" tabindex="2" aria-label="my donation list">My Donations</div>
+    <div class="ion-text-center header" tabindex="2" *ngIf="!donations && !isListFetching" style="font-size: 10px;">No Record Found!</div>
     <ion-card color="primary">
       <ion-card-content class="ion-no-padding">
         <ion-item *ngIf="isListFetching" class="loader-wrapper">

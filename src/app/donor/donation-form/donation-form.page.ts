@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { DonationService } from '../core/services/donation.service';
+import { DonationService } from '../../core/services/donation.service';
 
 @Component({
   selector: 'app-donation-form',
@@ -32,6 +32,9 @@ export class DonationFormPage implements OnInit, OnDestroy {
       address: new FormControl('', {
         validators: [Validators.required],
       }),
+      contactno: new FormControl('', {
+        validators: [Validators.required],
+      }),
       quantity: new FormControl(''),
       pickupDate: new FormControl('', {
         validators: [Validators.required],
@@ -59,23 +62,25 @@ export class DonationFormPage implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.isSubmitionInProgress = true;
     const payload = {
       _id: this.donationForm.get('name').value,
       name: this.donationForm.get('name').value,
       photograph: this.donationForm.get('photo').value,
+      food_title: this.donationForm.get('title').value,
       address: 'test',
-      cuisine_type: this.donationForm.get('foodCategory').value,
+      submission_date: new Date(),
+      category: this.donationForm.get('foodCategory').value,
       additional_information: this.donationForm.get('additionalInfo').value,
       donation_hours: [{
           date: this.donationForm.get('pickupDate').value,
           quantity: this.donationForm.get('quantity').value,
-          pickup: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
+          pickuptime: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
           address: this.donationForm.get('address').value,
         }],
     };
 
     this.donationService.addDonation(payload).subscribe((response) => {
-      console.log(response);
       this.isSubmitionInProgress = false;
       this.alertController.create({
         header: 'Confirmation',
