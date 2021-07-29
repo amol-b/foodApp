@@ -56,10 +56,9 @@ export class DonationFormPage implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const randomNo = this.randomNumber(0, 10000).toString();
     const payload = {
-      _id: randomNo,
-      name: 'test user',
+      _id: 'Crowne Plaza',
+      name: 'Crowne Plaza',
       photograph: this.donationForm.get('photo').value,
       address: 'test',
       cuisine_type: this.donationForm.get('foodCategory').value,
