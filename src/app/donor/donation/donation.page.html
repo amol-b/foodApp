@@ -1,16 +1,16 @@
 <app-header></app-header>
 <ion-content color="primary" class="ion-no-padding" id="main-content">
-  <ion-card>
+  <ion-card >
     <ion-img src="../../assets/fruits_veggies.jpg"></ion-img>
   </ion-card>
+  <ion-item class="loader-wrapper" *ngIf="isDataFetching">
+    <div>
+      <ion-spinner name="lines" color="primary"></ion-spinner>
+    </div>
+  </ion-item>
   <ion-card>
-    <ion-item *ngIf="isDataFetching" class="loader-wrapper">
-      <div>
-        <ion-spinner name="lines" color="primary"></ion-spinner>
-      </div>
-    </ion-item>
     <ion-card-content *ngIf="!isDataFetching">
-      <ion-item lines="none" >
+      <ion-item lines="none">
         <ion-label color="primary" class="ion-no-margin">
           Title: <span>{{donation?.food_title}}</span>
         </ion-label>
