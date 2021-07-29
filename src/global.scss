@@ -72,7 +72,4 @@ ion-list{
 
 #main-content ion-item{
   --border-color: var(--ion-color-primary);
-  &:last-child {
-    --border-color: white;
-  }
 }

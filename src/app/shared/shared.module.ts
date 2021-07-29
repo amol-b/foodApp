@@ -6,17 +6,21 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DonationlistComponent } from './donationlist/donationlist.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     SideMenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    DonationlistComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     SideMenuComponent,
     HeaderComponent,
-    HttpClientModule
+    HttpClientModule,
+    DonationlistComponent
   ]
 })
 export class SharedModule { }

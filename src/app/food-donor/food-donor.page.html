@@ -12,7 +12,7 @@
       <ion-item lines="none">
         <ion-label color="primary">
           <h4 tabindex="1">Welcome Sree!!</h4>
-          <p tabindex="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+          <p tabindex="1" *ngIf="donations">You have provided {{donations?.length}} donations so far.</p>
         </ion-label>
       </ion-item>
     </ion-card-content>
@@ -21,26 +21,12 @@
     <div class="ion-text-center header" tabindex="2" aria-label="my donation list">My Donations</div>
     <ion-card color="primary">
       <ion-card-content class="ion-no-padding">
-        <ion-item>
-          <ion-avatar slot="start" class="item-image" tabindex="3" aria-label="image of food item">
-            <img src="../../assets/bg.png">
-          </ion-avatar>
-          <ion-label color="primary">
-            <h2 tabindex="3">Ttile: Apples & Banana</h2>
-            <p tabindex="3">Category: Fruits</p>
-            <p tabindex="3">07/01/2021</p>
-          </ion-label>
+        <ion-item *ngIf="isListFetching" class="loader-wrapper">
+          <div>
+            <ion-spinner name="lines" color="primary"></ion-spinner>
+          </div>
         </ion-item>
-        <ion-item>
-          <ion-avatar slot="start" class="item-image" tabindex="3" aria-label="image of food item">
-            <img src="../../assets/bg.png">
-          </ion-avatar>
-          <ion-label color="primary">
-            <h2 tabindex="3">Apples & Banana</h2>
-            <p tabindex="3">Category: Fruits</p>
-            <p tabindex="3">07/01/2021</p>
-          </ion-label>
-        </ion-item>
+        <app-donationlist *ngFor="let donation of donations" [donation]="donation"></app-donationlist>
       </ion-card-content>
     </ion-card>
   </div>
