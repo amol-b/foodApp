@@ -8,26 +8,33 @@ const routes: Routes = [
   },
   {
     path: 'donor',
-    loadChildren: () => import('./food-donor/food-donor.module').then( m => m.FoodDonorPageModule)
+    loadChildren: () => import('./donor/donor-dashboard/donor-dashboard.module').then( m => m.DonorDashboardPageModule)
   },
   {
     path: 'donation-form',
-    loadChildren: () => import('./donation-form/donation-form.module').then( m => m.DonationFormPageModule)
+    loadChildren: () => import('./donor//donation-form/donation-form.module').then( m => m.DonationFormPageModule)
+  },
+  {
+    path: 'donation/:id',
+    loadChildren: () => import('./donor//donation/donation.module').then( m => m.DonationPageModule)
   },
   {
     path: 'ngo-list',
     loadChildren: () => import('./ngo-list/ngo-list.module').then( m => m.NgoListPageModule)
   },
   {
-    path: 'donation/:id',
-    loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
+    path: 'acceptor',
+    loadChildren: () => import('./acceptor/acceptor-dashboard/acceptor-dashboard.module').then( m => m.AcceptorDashboardPageModule)
+  },
+  {
+    path: 'ngo',
+    loadChildren: () => import('./ngo/ngo-dashboard/ngo-dashboard.module').then( m => m.NgoDashboardPageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-
 ];
 @NgModule({
   imports: [

@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DonationService } from '../core/services/donation.service';
+import { DonationService } from '../../core/services/donation.service';
 
 @Component({
   selector: 'app-donation',

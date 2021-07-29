@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { DonationService } from '../core/services/donation.service';
+import { DonationService } from '../../core/services/donation.service';
 
 @Component({
   selector: 'app-donation-form',
@@ -62,6 +62,7 @@ export class DonationFormPage implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.isSubmitionInProgress = true;
     const payload = {
       _id: this.donationForm.get('name').value,
       name: this.donationForm.get('name').value,
@@ -78,7 +79,6 @@ export class DonationFormPage implements OnInit, OnDestroy {
     };
 
     this.donationService.addDonation(payload).subscribe((response) => {
-      console.log(response);
       this.isSubmitionInProgress = false;
       this.alertController.create({
         header: 'Confirmation',
