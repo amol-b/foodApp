@@ -24,9 +24,12 @@ export class ApiService {
   }
 
   post(path: string, body: any = {}): Observable<any> {
+    const requestOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json', timeout: `${5000}`}),
+    };
     return this.http.post(
       `${environment.apiURL}${path}`,
-      JSON.stringify(body)
+      JSON.stringify(body), requestOptions
     ).pipe(catchError(this.formatErrors));
   }
 

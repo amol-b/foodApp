@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./ngo-list/ngo-list.module').then( m => m.NgoListPageModule)
   },
   {
-    path: 'donation',
+    path: 'donation/:id',
     loadChildren: () => import('./donation/donation.module').then( m => m.DonationPageModule)
   },
   {
