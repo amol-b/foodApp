@@ -67,13 +67,15 @@ export class DonationFormPage implements OnInit, OnDestroy {
       _id: this.donationForm.get('name').value,
       name: this.donationForm.get('name').value,
       photograph: this.donationForm.get('photo').value,
+      food_title: this.donationForm.get('title').value,
       address: 'test',
-      cuisine_type: this.donationForm.get('foodCategory').value,
+      submission_date: new Date(),
+      category: this.donationForm.get('foodCategory').value,
       additional_information: this.donationForm.get('additionalInfo').value,
       donation_hours: [{
           date: this.donationForm.get('pickupDate').value,
           quantity: this.donationForm.get('quantity').value,
-          pickup: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
+          pickuptime: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
           address: this.donationForm.get('address').value,
         }],
     };
