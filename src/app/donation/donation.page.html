@@ -4,15 +4,20 @@
     <ion-img src="../../assets/fruits_veggies.jpg"></ion-img>
   </ion-card>
   <ion-card>
-    <ion-card-content>
+    <ion-item *ngIf="isDataFetching" class="loader-wrapper">
+      <div>
+        <ion-spinner name="lines" color="primary"></ion-spinner>
+      </div>
+    </ion-item>
+    <ion-card-content *ngIf="!isDataFetching">
       <ion-item lines="none" >
         <ion-label color="primary" class="ion-no-margin">
-          Title: <span>{{donation?.foodTitle}}</span>
+          Title: <span>{{donation?.food_title}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
         <ion-label color="primary">
-          Submitted On: <span>{{donation?.submissionDate}}</span>
+          Submitted On: <span>{{donation?.submission_date}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">

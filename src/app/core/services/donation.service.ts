@@ -15,8 +15,8 @@ export class DonationService {
     return this.apiService.post(url, payload);
   }
 
-  getDonations() {
-    const url = '/restaurants';
+  getDonation(id) {
+    const url = `/restaurants/${id}`;
     return this.apiService.get(url);
   }
 }
