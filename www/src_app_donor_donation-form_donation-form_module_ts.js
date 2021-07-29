@@ -155,19 +155,23 @@ let DonationFormPage = class DonationFormPage {
     }
     onSubmit() {
         this.isSubmitionInProgress = true;
+        const pickupStartTime = new Date(this.donationForm.get('pickupStartTime').value).toLocaleTimeString();
+        const pickupEndTime = new Date(this.donationForm.get('pickupEndTime').value).toLocaleTimeString();
+        const currDate = new Date();
+        const submissionDate = this.getFormattedDate(currDate);
         const payload = {
             _id: this.donationForm.get('name').value,
             name: this.donationForm.get('name').value,
-            photograph: this.donationForm.get('photo').value,
+            photograph: `data:image/jpeg;base64,${this.base64Img}`,
             food_title: this.donationForm.get('title').value,
             address: 'test',
-            submission_date: new Date(),
+            submission_date: submissionDate,
             category: this.donationForm.get('foodCategory').value,
             additional_information: this.donationForm.get('additionalInfo').value,
             donation_hours: [{
-                    date: this.donationForm.get('pickupDate').value,
+                    date: this.getFormattedDate(new Date(this.donationForm.get('pickupDate').value)),
                     quantity: this.donationForm.get('quantity').value,
-                    pickuptime: `${this.donationForm.get('pickupStartTime').value} - ${this.donationForm.get('pickupEndTime').value}`,
+                    pickuptime: `${pickupStartTime} - ${pickupEndTime}`,
                     address: this.donationForm.get('address').value,
                 }],
         };
@@ -194,6 +198,31 @@ let DonationFormPage = class DonationFormPage {
                 res.present();
             });
         });
+    }
+    getFormattedDate(currDate) {
+        return `${currDate.getUTCMonth() + 1}/${currDate.getUTCDate()}/${currDate.getUTCFullYear()}`;
+    }
+    onFileChange(event) {
+        const fileList = event.target.files;
+        if (fileList.length > 0) {
+            const file = fileList[0];
+            this.handleInputChange(file); //turn into base64
+        }
+    }
+    handleInputChange(files) {
+        const file = files;
+        const pattern = /image-*/;
+        const reader = new FileReader();
+        if (!file.type.match(pattern)) {
+            alert('invalid format');
+            return;
+        }
+        reader.onloadend = this.handleReaderLoaded.bind(this);
+        reader.readAsDataURL(file);
+    }
+    handleReaderLoaded(e) {
+        const reader = e.target;
+        this.base64Img = reader.result.substr(reader.result.indexOf(',') + 1);
     }
     ngOnDestroy() {
         this.componentActive = false;
@@ -242,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\r\n<ion-content color=\"primary\" class=\"ion-no-padding\" id=\"main-content\">\r\n  <h5 class=\"ion-text-center\">My Donation</h5>\r\n  <ion-card>\r\n    <form [formGroup]=\"donationForm\">\r\n      <ion-list>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Name</ion-label>\r\n          <ion-input formControlName=\"name\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Select food category</ion-label>\r\n          <ion-select formControlName=\"foodCategory\">\r\n            <ion-select-option value=\"Grocery\">Grocery</ion-select-option>\r\n            <ion-select-option value=\"Fruits\">Fruits</ion-select-option>\r\n            <ion-select-option value=\"Beverages\">Beverages</ion-select-option>\r\n            <ion-select-option value=\"Prepared food\">Prepared food</ion-select-option>\r\n            <ion-select-option value=\"Other\">Other</ion-select-option>\r\n          </ion-select>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Food Title</ion-label>\r\n          <ion-input formControlName=\"title\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Address</ion-label>\r\n          <ion-textarea formControlName=\"address\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Contact Number</ion-label>\r\n          <ion-textarea formControlName=\"contactno\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Quantity</ion-label>\r\n          <ion-input formControlName=\"quantity\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup Date</ion-label>\r\n          <ion-datetime value=\"\" formControlName=\"pickupDate\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup Start Time</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" value=\"\" formControlName=\"pickupStartTime\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup End Time</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" value=\"\" formControlName=\"pickupEndTime\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Additonal Information</ion-label>\r\n          <ion-textarea formControlName=\"additionalInfo\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item >\r\n          <!-- <ion-label color=\"primary\" slot=\"start\">Upload Photo(s)</ion-label> -->\r\n          <label for=\"upload-photo\" tabindex=\"1\" class=\"upload-photo\">Upload photo<ion-icon name=\"cloud-upload-outline\" color=\"primary\"></ion-icon></label>\r\n          <input type=\"file\" formControlName=\"photo\" hidden id=\"upload-photo\">\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-button type=\"reset\" size=\"small\" fill=\"outline\" slot=\"end\">Reset</ion-button>\r\n          <ion-button type=\"submit\"  size=\"small\" slot=\"end\" (click)=\"onSubmit()\" [disabled]=\"!donationForm.valid || isSubmitionInProgress\">\r\n            Submit <ion-spinner name=\"lines\" *ngIf=\"isSubmitionInProgress\"></ion-spinner>\r\n          </ion-button>\r\n        </ion-item>\r\n      </ion-list>\r\n    </form>\r\n  </ion-card>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\r\n<ion-content color=\"primary\" class=\"ion-no-padding\" id=\"main-content\">\r\n  <h5 class=\"ion-text-center\">My Donation</h5>\r\n  <ion-card>\r\n    <form [formGroup]=\"donationForm\">\r\n      <ion-list>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Name</ion-label>\r\n          <ion-input formControlName=\"name\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Select food category</ion-label>\r\n          <ion-select formControlName=\"foodCategory\">\r\n            <ion-select-option value=\"Grocery\">Grocery</ion-select-option>\r\n            <ion-select-option value=\"Fruits\">Fruits</ion-select-option>\r\n            <ion-select-option value=\"Beverages\">Beverages</ion-select-option>\r\n            <ion-select-option value=\"Prepared food\">Prepared food</ion-select-option>\r\n            <ion-select-option value=\"Other\">Other</ion-select-option>\r\n          </ion-select>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Food Title</ion-label>\r\n          <ion-input formControlName=\"title\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Address</ion-label>\r\n          <ion-textarea formControlName=\"address\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Contact Number</ion-label>\r\n          <ion-textarea formControlName=\"contactno\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Quantity</ion-label>\r\n          <ion-input formControlName=\"quantity\"></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup Date</ion-label>\r\n          <ion-datetime value=\"\" formControlName=\"pickupDate\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup Start Time</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" value=\"\" formControlName=\"pickupStartTime\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Pickup End Time</ion-label>\r\n          <ion-datetime display-format=\"h:mm A\" picker-format=\"h:mm A\" value=\"\" formControlName=\"pickupEndTime\"></ion-datetime>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-label color=\"primary\">Additonal Information</ion-label>\r\n          <ion-textarea formControlName=\"additionalInfo\"></ion-textarea>\r\n        </ion-item>\r\n        <ion-item >\r\n          <!-- <ion-label color=\"primary\" slot=\"start\">Upload Photo(s)</ion-label> -->\r\n          <label for=\"upload-photo\" tabindex=\"1\" class=\"upload-photo\" >Upload photo<ion-icon name=\"cloud-upload-outline\" color=\"primary\"></ion-icon></label>\r\n          <input type=\"file\" formControlName=\"photo\" hidden id=\"upload-photo\" (change)=\"onFileChange($event)\">\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-button type=\"reset\" size=\"small\" fill=\"outline\" slot=\"end\">Reset</ion-button>\r\n          <ion-button type=\"submit\"  size=\"small\" slot=\"end\" (click)=\"onSubmit()\" [disabled]=\"!donationForm.valid || isSubmitionInProgress\">\r\n            Submit <ion-spinner name=\"lines\" *ngIf=\"isSubmitionInProgress\"></ion-spinner>\r\n          </ion-button>\r\n        </ion-item>\r\n      </ion-list>\r\n    </form>\r\n  </ion-card>\r\n</ion-content>\r\n");
 
 /***/ })
 
