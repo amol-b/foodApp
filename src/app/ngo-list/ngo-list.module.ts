@@ -7,10 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { NgoListPageRoutingModule } from './ngo-list-routing.module';
 
 import { NgoListPage } from './ngo-list.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     FormsModule,
     IonicModule,
     NgoListPageRoutingModule

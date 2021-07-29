@@ -1,0 +1,24 @@
+#my-donation{
+  .header {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.top-section{
+  background: var(--button-bg);
+}
+
+.loader-wrapper {
+  --background: transparent;
+  div{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  ion-spinner {
+    width: 60px;
+    height: 60px;
+    color: #FFF;
+  }
+}

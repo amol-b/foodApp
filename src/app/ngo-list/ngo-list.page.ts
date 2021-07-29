@@ -11,11 +11,15 @@ export class NgoListPage implements OnInit, OnDestroy {
 
   ngolist = [];
   componentActive = true;
+  isListFetching = false;
   constructor(private service: NgoListService) { }
 
   ngOnInit() {
+    this.isListFetching = true;
     this.service.getNgoList().pipe(takeWhile( () => this.componentActive)).subscribe(data => {
       this.ngolist = data;
+      console.log(data);
+      this.isListFetching = false;
     });
   }
 

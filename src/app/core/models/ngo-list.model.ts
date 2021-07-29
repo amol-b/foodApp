@@ -3,7 +3,7 @@ export interface NgoList {
   isActive: boolean;
   picture: string;
   noOfDeliveries: number;
-  company: string;
+  ngoName: string;
   email: string;
   phone: string;
   address: string;
