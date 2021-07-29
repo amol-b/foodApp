@@ -32,6 +32,9 @@ export class DonationFormPage implements OnInit, OnDestroy {
       address: new FormControl('', {
         validators: [Validators.required],
       }),
+      contactno: new FormControl('', {
+        validators: [Validators.required],
+      }),
       quantity: new FormControl(''),
       pickupDate: new FormControl('', {
         validators: [Validators.required],
