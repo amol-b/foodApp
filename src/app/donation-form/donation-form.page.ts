@@ -20,6 +20,9 @@ export class DonationFormPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.donationForm = new FormGroup({
+      name: new FormControl('', {
+        validators: [Validators.required],
+      }),
       foodCategory: new FormControl('', {
         validators: [Validators.required],
       }),
@@ -57,8 +60,8 @@ export class DonationFormPage implements OnInit, OnDestroy {
 
   onSubmit() {
     const payload = {
-      _id: 'Crowne Plaza',
-      name: 'Crowne Plaza',
+      _id: this.donationForm.get('name').value,
+      name: this.donationForm.get('name').value,
       photograph: this.donationForm.get('photo').value,
       address: 'test',
       cuisine_type: this.donationForm.get('foodCategory').value,
