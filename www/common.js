@@ -438,6 +438,49 @@ const openURL = async (url, ev, direction, animation) => {
 
 
 
+/***/ }),
+
+/***/ 286:
+/*!***************************************************!*\
+  !*** ./src/app/core/services/donation.service.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DonationService": () => (/* binding */ DonationService)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.service */ 5384);
+
+
+
+let DonationService = class DonationService {
+    constructor(apiService) {
+        this.apiService = apiService;
+    }
+    addDonation(payload) {
+        const url = '/restaurants';
+        return this.apiService.post(url, payload);
+    }
+    getDonation(id) {
+        const url = `/restaurants/${id}`;
+        return this.apiService.get(url);
+    }
+};
+DonationService.ctorParameters = () => [
+    { type: _api_service__WEBPACK_IMPORTED_MODULE_0__.ApiService }
+];
+DonationService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
+        providedIn: 'root'
+    })
+], DonationService);
+
+
+
 /***/ })
 
 }]);

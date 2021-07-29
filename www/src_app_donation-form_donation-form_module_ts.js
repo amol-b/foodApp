@@ -1,48 +1,5 @@
 (self["webpackChunkfoodApp"] = self["webpackChunkfoodApp"] || []).push([["src_app_donation-form_donation-form_module_ts"],{
 
-/***/ 286:
-/*!***************************************************!*\
-  !*** ./src/app/core/services/donation.service.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DonationService": () => (/* binding */ DonationService)
-/* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.service */ 5384);
-
-
-
-let DonationService = class DonationService {
-    constructor(apiService) {
-        this.apiService = apiService;
-    }
-    addDonation(payload) {
-        const url = '/restaurants';
-        return this.apiService.post(url, payload);
-    }
-    getDonations() {
-        const url = '/restaurants';
-        return this.apiService.get(url);
-    }
-};
-DonationService.ctorParameters = () => [
-    { type: _api_service__WEBPACK_IMPORTED_MODULE_0__.ApiService }
-];
-DonationService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
-        providedIn: 'root'
-    })
-], DonationService);
-
-
-
-/***/ }),
-
 /***/ 8344:
 /*!***************************************************************!*\
   !*** ./src/app/donation-form/donation-form-routing.module.ts ***!
@@ -191,7 +148,7 @@ let DonationFormPage = class DonationFormPage {
         return Math.floor(Math.random() * (max - min) + min);
     }
     onSubmit() {
-        const randomNo = this.randomNumber(0, 10000);
+        const randomNo = this.randomNumber(0, 10000).toString();
         const payload = {
             _id: randomNo,
             name: 'test user',
