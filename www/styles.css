@@ -1245,5 +1245,21 @@ ion-list {
 #main-content ion-item {
   --border-color: var(--ion-color-primary);
 }
+.loader-wrapper {
+  --background: transparent;
+}
+.loader-wrapper div {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+.loader-wrapper ion-spinner {
+  width: 60px;
+  height: 60px;
+  color: #FFF;
+}
+ion-toolbar {
+  --background: #3F245B;
+}
 
 /*# sourceMappingURL=styles.css.map*/

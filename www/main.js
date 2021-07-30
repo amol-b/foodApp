@@ -452,12 +452,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SideMenuComponent": () => (/* binding */ SideMenuComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_side_menu_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./side-menu.component.html */ 9926);
 /* harmony import */ var _side_menu_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./side-menu.component.scss */ 9976);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ 2340);
+
 
 
 
@@ -470,17 +472,19 @@ let SideMenuComponent = class SideMenuComponent {
         this.menu = menu;
     }
     ngOnInit() { }
-    onMenuItemClick(urlSegment) {
+    onMenuItemClick(itemName) {
+        console.log(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.userType);
+        const urlSegment = itemName === 'home' ? src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.userType : itemName;
         this.route.navigate([urlSegment]);
         this.menu.close();
     }
 };
 SideMenuComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__.Router },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.MenuController }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__.Router },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.MenuController }
 ];
-SideMenuComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
+SideMenuComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
         selector: 'app-side-menu',
         template: _raw_loader_side_menu_component_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_side_menu_component_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -507,8 +511,9 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    apiURL: 'https://app-c2.c70gber22ip.us-south.codeengine.appdomain.cloud'
-    // apiURL: 'http://localhost:3000'
+    apiURL: 'https://app-c2.c70gber22ip.us-south.codeengine.appdomain.cloud',
+    // apiURL: 'http://localhost:3000',
+    userType: undefined,
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -823,7 +828,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJoZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("ion-item {\n  --background: transparent;\n}\nion-item ion-img {\n  margin: 0 10px 0 0;\n}\nion-item span {\n  color: #FFF;\n}\nion-menu-button {\n  --color: #FFF;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUlFLHlCQUFBO0FBRkY7QUFERTtFQUNFLGtCQUFBO0FBR0o7QUFBRTtFQUNFLFdBQUE7QUFFSjtBQUNBO0VBQ0UsYUFBQTtBQUVGIiwiZmlsZSI6ImhlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1pdGVtIHtcclxuICBpb24taW1ne1xyXG4gICAgbWFyZ2luOiAwIDEwcHggMCAwO1xyXG4gIH1cclxuICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gIHNwYW4ge1xyXG4gICAgY29sb3I6ICNGRkY7XHJcbiAgfVxyXG59XHJcbmlvbi1tZW51LWJ1dHRvbiB7XHJcbiAgLS1jb2xvcjogI0ZGRjs7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -883,7 +888,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header class=\"ion-no-border\"  [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-menu-button color=\"primary\" slot=\"end\"></ion-menu-button>\r\n  </ion-toolbar>\r\n</ion-header>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header class=\"ion-no-border\"  [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-item lines=\"none\">\r\n      <ion-img src=\"../../assets/logo.png\" style=\"height: 30px;\" slot=\"start\"></ion-img>\r\n      <span>Food Chain</span>\r\n    </ion-item>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-menu-button slot=\"end\"></ion-menu-button>\r\n  </ion-toolbar>\r\n</ion-header>\r\n");
 
 /***/ }),
 
@@ -898,7 +903,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-menu side=\"end\" content-id=\"main-content\" color=\"secondary\">\r\n  <ion-header>\r\n    <ion-toolbar translucent>\r\n      <ion-title>Menu</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-content color=\"secondary\" >\r\n    <ion-list class=\"ion-no-padding\">\r\n      <ion-item color=\"tertiary\" (click)=\"onMenuItemClick('donor')\">\r\n        <ion-icon name=\"home-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Home</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"person-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>My Profile</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"archive-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>My Activities</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\" (click)=\"onMenuItemClick('donation-form')\">\r\n        <ion-icon name=\"add-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Make Donation</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\" (click)=\"onMenuItemClick('ngo-list')\">\r\n        <ion-icon name=\"list-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>NGO List</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"log-out-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Sign out</ion-label>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-menu>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-menu side=\"end\" content-id=\"main-content\" color=\"secondary\">\r\n  <ion-header>\r\n    <ion-toolbar translucent>\r\n      <ion-title color=\"light\">Menu</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-content color=\"secondary\" >\r\n    <ion-list class=\"ion-no-padding\">\r\n      <ion-item color=\"tertiary\" (click)=\"onMenuItemClick('home')\">\r\n        <ion-icon name=\"home-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Home</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"person-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>My Profile</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"archive-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>My Activities</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\" (click)=\"onMenuItemClick('donation-form')\">\r\n        <ion-icon name=\"add-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Make Donation</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\" (click)=\"onMenuItemClick('ngo-list')\">\r\n        <ion-icon name=\"list-circle-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>NGO List</ion-label>\r\n      </ion-item>\r\n      <ion-item color=\"secondary\">\r\n        <ion-icon name=\"log-out-outline\" slot=\"start\"></ion-icon>\r\n        <ion-label>Sign out</ion-label>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-menu>\r\n");
 
 /***/ })
 
