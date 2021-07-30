@@ -10,7 +10,7 @@
       <ion-item lines="none">
         <ion-label color="primary">
           <h4 tabindex="1">Welcome Sree!!</h4>
-          <p>“Hunger is not a problem. It is an obscenity. How wonderful it is that nobody need wait a single moment before starting to improve the world.” Anne Frank</p>
+          <p tabindex="1">“Hunger is not a problem. It is an obscenity. How wonderful it is that nobody need wait a single moment before starting to improve the world.” Anne Frank</p>
         </ion-label>
       </ion-item>
     </ion-card-content>
@@ -19,12 +19,12 @@
     <div class="ion-text-center header" tabindex="2" aria-label="my donation list">List of Donations</div>
     <div class="ion-text-center header" tabindex="2" *ngIf="!donations && !isListFetching" style="font-size: 10px;">No Record Found!</div>
     <ion-card color="primary">
+      <ion-item *ngIf="isListFetching" class="loader-wrapper">
+        <div>
+          <ion-spinner name="lines" color="primary"></ion-spinner>
+        </div>
+      </ion-item>
       <ion-card-content class="ion-no-padding">
-        <ion-item *ngIf="isListFetching" class="loader-wrapper">
-          <div>
-            <ion-spinner name="lines" color="primary"></ion-spinner>
-          </div>
-        </ion-item>
         <app-donationlist *ngFor="let donation of donations" [donation]="donation"></app-donationlist>
       </ion-card-content>
     </ion-card>

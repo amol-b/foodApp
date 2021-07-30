@@ -81,7 +81,7 @@ export class DonationFormPage implements OnInit, OnDestroy {
           date: this.getFormattedDate(new Date(this.donationForm.get('pickupDate').value)),
           quantity: this.donationForm.get('quantity').value,
           pickuptime: `${pickupStartTime} - ${pickupEndTime}`,
-          address: this.donationForm.get('address').value,
+        address: this.donationForm.get('address').value,
         }],
     };
 

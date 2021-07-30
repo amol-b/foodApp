@@ -21,21 +21,3 @@ ion-label {
 .top-section{
   background: var(--button-bg);
 }
-
-// ion-card, ion-item{
-//   --background: transparent;
-// }
-
-.loader-wrapper {
-  --background: transparent;
-  div{
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-  }
-  ion-spinner {
-    width: 60px;
-    height: 60px;
-    color: #FFF;
-  }
-}

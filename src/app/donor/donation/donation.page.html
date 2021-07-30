@@ -1,7 +1,7 @@
 <app-header></app-header>
 <ion-content color="primary" class="ion-no-padding" id="main-content">
   <ion-card >
-    <ion-img src="../../assets/fruits_veggies.jpg"></ion-img>
+    <ion-img src="../../assets/fruits_veggies.jpg" aria-labelledby="Image of donated item"></ion-img>
   </ion-card>
   <ion-item class="loader-wrapper" *ngIf="isDataFetching">
     <div>
@@ -11,37 +11,37 @@
   <ion-card>
     <ion-card-content *ngIf="!isDataFetching">
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin" tabindex="1">
           Title: <span>{{donation?.food_title}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Submitted On: <span>{{donation?.submission_date}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Category: <span>{{donation?.category}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Address: <span>{{donation?.donation_hours[0]?.address}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Pick Up Date: <span>{{donation?.donation_hours[0]?.date}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Pick Up Time: <span>{{donation?.donation_hours[0]?.pickuptime}}</span>
         </ion-label>
       </ion-item>
       <ion-item lines="none">
-        <ion-label color="primary" class="ion-no-margin">
+        <ion-label color="primary" class="ion-no-margin"  tabindex="1">
           Quantity: <span>{{donation?.donation_hours[0]?.quantity}}</span>
         </ion-label>
       </ion-item>

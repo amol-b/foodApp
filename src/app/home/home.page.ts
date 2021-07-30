@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,4 +13,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  captureUserType(userType){
+    environment.userType = userType;
+  }
 }
