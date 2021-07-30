@@ -1,12 +1,18 @@
 <ion-content color="primary" class="ion-no-padding" id="home-page">
-  <section>
-    <div class="app-logo">
-      <img src="../../assets/02.JPG"/>
-    </div>
-    <div class="button-wrapper">
-      <ion-button type="button" expand="block" routerLink="/ngo" class="ion-text-wrap" (click)="captureUserType('ngo')">Login As NGO</ion-button>
-      <ion-button type="button" expand="block" routerLink="/donor" class="ion-text-wrap" (click)="captureUserType('donor')">Login As Donor</ion-button>
-      <ion-button type="button" expand="block" routerLink="/acceptor" class="ion-text-wrap" (click)="captureUserType('acceptor')">Login As Acceptor</ion-button>
-    </div>
-  </section>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size-lg="6" offset-lg="3" size-sm="12">
+        <section>
+          <div class="app-logo">
+            <img src="../../assets/02.JPG"/>
+          </div>
+          <div class="button-wrapper">
+            <ion-button type="button" expand="block" routerLink="/ngo" class="ion-text-wrap" (click)="captureUserType('ngo')">Login As NGO</ion-button>
+            <ion-button type="button" expand="block" routerLink="/donor" class="ion-text-wrap" (click)="captureUserType('donor')">Login As Donor</ion-button>
+            <ion-button type="button" expand="block" routerLink="/acceptor" class="ion-text-wrap" (click)="captureUserType('acceptor')">Login As Acceptor</ion-button>
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

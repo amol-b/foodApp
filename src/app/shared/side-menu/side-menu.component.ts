@@ -17,7 +17,7 @@ export class SideMenuComponent implements OnInit {
   onMenuItemClick(itemName) {
     console.log( environment.userType);
 
-    const urlSegment =  itemName === 'home' ? environment.userType : itemName;
+    const urlSegment =  itemName === 'dashboard' ? environment.userType : itemName;
     this.route.navigate([urlSegment]);
     this.menu.close();
   }
